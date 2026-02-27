@@ -1,0 +1,11 @@
+Tu travailles dans le domaine du jeu vidéo et de la gestion de collections de jeux de cartes à collectionner Pokémon. Ton organisation a comme activité de gérer une plateforme en ligne dédiée aux dresseurs Pokémon : elle recense les cartes disponibles, gère les collections des utilisateurs, organise des tournois et facilite les échanges entre joueurs. C'est une organisation comme Pokémon Company, PokeCardex, ou TCGPlayer. Les données portent principalement sur les cartes Pokémon (caractéristiques, éditions, raretés), les dresseurs (comptes utilisateurs, collections), les tournois et matchs organisés, ainsi que les transactions d'échange entre joueurs.
+
+Inspire-toi du site web officiel https://www.pokemon.com/fr/jeu-de-cartes-pokemon, et de la documentation de la base de données publique https://pokemontcg.io ainsi que de la plateforme de référence https://www.tcgplayer.com.
+
+Ton organisation — appelée PokéDex TCG — veut appliquer MERISE pour concevoir un système d'information. Tu es chargé de la partie analyse, c'est-à-dire de collecter les besoins auprès de l'organisation. Elle a fait appel à un étudiant en ingénierie informatique pour réaliser ce projet, tu dois lui fournir les informations nécessaires pour qu'il applique ensuite lui-même les étapes suivantes de conception et développement de la base de données.
+
+D'abord, établis les règles de gestions des données de PokéDex TCG, sous la forme d'une liste à puce. Elle doit correspondre aux informations que fournit quelqu'un qui connaît le fonctionnement de l'organisation, mais pas comment se construit un système d'information.
+
+Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes avec les colonnes suivantes, regroupées dans un tableau : signification de la donnée, type, taille en nombre de caractères ou de chiffres. Il doit y avoir entre 25 et 35 données. Il sert à fournir des informations supplémentaires sur chaque donnée (taille et type) mais sans a priori sur comment les données vont être modélisées ensuite.
+
+Fournis donc les règles de gestion et le dictionnaire de données.
