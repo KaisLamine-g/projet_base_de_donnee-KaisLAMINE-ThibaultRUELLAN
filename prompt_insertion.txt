@@ -1,0 +1,39 @@
+Tu travailles dans le domaine du jeu vidéo et de la gestion de collections de cartes Pokémon TCG.
+Tu dois générer des données SQL réalistes pour remplir la base de données de la plateforme PokéDex TCG.
+
+Voici le schéma des tables à remplir (MPD SQL) :
+
+DRESSEUR(id_dresseur, pseudo, email, mot_de_passe, date_inscription, elo)
+EDITION(id_edition, nom_edition, date_sortie, nb_cartes)
+POKEMON(id_pokemon, nom_pokemon, numero_pokedex, type_elementaire)
+CARTE(id_carte, nom_carte, numero_carte, rarete, foil, pv, attaque_principale, degats_attaque, id_edition, id_pokemon, id_carte_precedente)
+COLLECTION(id_dresseur, id_carte, quantite)
+TOURNOI(id_tournoi, nom_tournoi, lieu, date_debut, date_fin)
+PARTICIPE(id_dresseur, id_tournoi)
+COMBAT(id_combat, date_combat, resultat, id_joueur1, id_joueur2, id_tournoi)
+ECHANGE(id_echange, date_echange, statut, id_emetteur, id_receveur)
+PROPOSE(id_echange, id_carte, id_dresseur)
+RECOIT(id_echange, id_carte, id_dresseur)
+AVIS(id_dresseur, id_carte, note, commentaire)
+
+Contraintes à respecter impérativement :
+- Les raretes valides sont : 'Commune', 'Peu commune', 'Rare', 'Rare Holographique', 'Ultra Rare', 'Secret Rare'
+- Les statuts d'échange valides sont : 'en_attente', 'accepte', 'refuse'
+- Les résultats de combat valides sont : 'joueur1', 'joueur2', 'nul'
+- Les types élémentaires valides sont : 'Feu', 'Eau', 'Plante', 'Électrik', 'Psy', 'Combat', 'Ténèbres', 'Métal', 'Dragon', 'Fée', 'Normal', 'Vol', 'Poison', 'Sol', 'Roche', 'Insecte', 'Spectre', 'Glace', 'Incolore'
+- Un dresseur ne peut pas s'affronter lui-même (id_joueur1 <> id_joueur2)
+- Un dresseur ne peut pas s'envoyer un échange à lui-même (id_emetteur <> id_receveur)
+- La date de fin d'un tournoi doit être >= date de début
+- La quantite dans COLLECTION doit être >= 1
+- La note dans AVIS doit être entre 1 et 5
+- Les clés étrangères doivent référencer des enregistrements existants
+- Les paires (id_dresseur, id_carte) dans COLLECTION et AVIS doivent être uniques
+- Les paires (id_dresseur, id_tournoi) dans PARTICIPE doivent être uniques
+
+Instructions :
+1. Génère des données réalistes inspirées de vrais Pokémon, vraies éditions TCG, et pseudos de dresseurs cohérents.
+2. Respecte l'ordre d'insertion suivant : EDITION → POKEMON → CARTE → DRESSEUR → COLLECTION → TOURNOI → PARTICIPE → COMBAT → ECHANGE → PROPOSE → RECOIT → AVIS
+3. Génère au minimum : 10 éditions, 15 Pokémon, 20 cartes, 10 dresseurs, 30 entrées de collection, 4 tournois, 15 participations, 15 combats, 6 échanges, 6 avis.
+4. Veille à ce que les FK soient cohérentes : un COMBAT doit référencer des DRESSEURS qui participent au même TOURNOI.
+5. Les mots de passe doivent être des chaînes hashées (format bcrypt simulé, ex: '$2b$12$...').
+6. Formate la réponse uniquement en SQL valide, sans commentaires markdown, prêt à être exécuté dans PostgreSQL.
